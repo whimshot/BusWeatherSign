@@ -8,7 +8,7 @@ RUN apt-get update
 
 RUN apt-get install -y apt-utils
 
-RUN apt-get install -y python python-dev python-imaging python-pywapi
+RUN apt-get install -y python python-dev
 
 # Remove package lists to free up space
 RUN rm -rf /var/lib/apt/lists/*
@@ -18,4 +18,4 @@ COPY . /app
 
 # run python script when container lands on device
 #CMD ["python", "/app/nextbus-matrix.py"]
-CMD modprobe i2c-dev && python /app/nextbus-matrix.py
+CMD modprobe i2c-dev && apt-get install -i python-imaging python-pywapi && python /app/nextbus-matrix.py
