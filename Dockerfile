@@ -4,11 +4,14 @@ FROM resin/raspberrypi-python
 ENV INITSYSTEM on
 
 # Install Python.
-RUN apt-get update \
-	&& apt-get install -y apt-utils \
-    && apt-get install -y python python-dev python-imaging python-pywapi \
-	# Remove package lists to free up space
-	&& rm -rf /var/lib/apt/lists/*
+RUN apt-get update
+
+RUN apt-get install -y apt-utils
+
+RUN apt-get install -y python python-dev python-imaging python-pywapi
+
+# Remove package lists to free up space
+RUN rm -rf /var/lib/apt/lists/*
 
 # copy current directory into /app
 COPY . /app
