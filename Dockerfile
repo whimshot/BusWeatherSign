@@ -18,4 +18,4 @@ COPY . /app
 
 # run python script when container lands on device
 #CMD ["python", "/app/nextbus-matrix.py"]
-CMD modprobe i2c-dev && apt-get install -i python-imaging python-pywapi && python /app/nextbus-matrix.py
+CMD modprobe i2c-dev && apt-get install -y python-imaging python-pywapi && python /app/nextbus-matrix.py
