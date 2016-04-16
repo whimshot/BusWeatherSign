@@ -5,7 +5,7 @@ ENV INITSYSTEM on
 
 # Install Python.
 RUN apt-get update \
-	&& apt-get install -y apt-utils
+	&& apt-get install -y apt-utils \
     && apt-get install -y python python-dev python-imaging python-pywapi \
 	# Remove package lists to free up space
 	&& rm -rf /var/lib/apt/lists/*
