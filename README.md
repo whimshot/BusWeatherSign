@@ -1,17 +1,12 @@
-# hello-python
-This is a barebones resin.io project to demonstrate running python code. 
-Currently it is targeting a raspberry pi and builds upon a debian wheezy base image. However, it is easy to 
-change this to target any of the other targeted platforms supported by resin.io, all that you need to do is 
-change the line:
-```
-FROM resin/rpi-raspbian:jessie
-```
-to any of the base OS images from the [resin.io docker hub](https://registry.hub.docker.com/repos/resin/).
+Adafruit-NextBus
+================
 
-For an explanation on how [resin.io](https://resin.io/) uses Dockerfiles check out the [Dockerfile guide](http://docs.resin.io/#/pages/dockerfile.md)
- . Additionally if you want to learn how to optimise your Dockerfile look over [here](http://docs.resin.io/#/pages/build-optimisation.md)
+Python front-end for the NextBus schedule service, for Raspberry Pi, etc.
 
+routefinder.py: for selecting bus routes/stops for use with the other scripts. Crude textual interface is best used w/terminal with scroll-back ability. Only need to use this for setup, hence the very basic implementation.
 
-__Note:__ Obviously apt package manager will only work in Debian environments.
+predict.py: class that handles periodic queries to the NextBus server. Imported by other scripts; doesn't do anything on its own.
 
+nextbus-simple.py: Minimal front-end to demonstrate use of predict.py. Prints to cosole every 5 seconds.
 
+nextbus-matrix.py: Scrolling marquee using 32x32 RGB LED matrix. Requires rpi-rgb-led-matrix library: https://github.com/adafruit/rpi-rgb-led-matrix
