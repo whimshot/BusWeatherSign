@@ -6,7 +6,6 @@ import threading
 import time
 import urllib
 from xml.dom.minidom import parseString
-import numpy
 
 class predict:
 	interval  = 120 # Default polling interval = 2 minutes
