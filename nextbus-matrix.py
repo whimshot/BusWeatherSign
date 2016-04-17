@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # NextBus scrolling marquee display for Adafruit RGB LED matrix (64x32).
 # Requires rgbmatrix.so library: github.com/adafruit/rpi-rgb-led-matrix
 
@@ -153,7 +154,7 @@ class tile:
 			if count > 0:
 				draw.text((x, self.y + fontYoffset + 10),
 				  ' minutes', font=font, fill=minsColor)
-                draw.text((self.x, 20), self.w.forecast, font=font, fill=weatherColor)   
+                draw.text((self.x, 20), self.w.forecast, font=font, fill=weatherColor)
 
 # Allocate list of tile objects, enough to cover screen while scrolling
 tileList = []
@@ -163,7 +164,7 @@ else:                  tilesAcross = int(math.ceil(width / tileWidth)) + 1
 nextPrediction = 0  # Index of predictList item to attach to tile
 for x in xrange(tilesAcross):
 	for y in xrange(0, 1):
-		tileList.append(tile(x * tileWidth + y * tileWidth / 2, 
+		tileList.append(tile(x * tileWidth + y * tileWidth / 2,
 		  y * 17, predictList[nextPrediction], myWeather))
 		nextPrediction += 1
 		if nextPrediction >= len(predictList):
