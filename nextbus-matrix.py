@@ -74,7 +74,8 @@ myWeather = weather("KBOS")
 
 for i in xrange(10, 0, -1):
     draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
-    draw.text((0, 0), str(i), font=font, fill=routeColor)
+    draw.text((0, 0), "Restarting In", font=font, fill=routeColor)
+    draw.text((0, 12), str(i), font=font, fill=routeColor)
     # Offscreen buffer is copied to screen
     matrix.SetImage(image.im.id, 0, 0)
     time.sleep(1)
