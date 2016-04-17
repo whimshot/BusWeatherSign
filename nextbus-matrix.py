@@ -25,7 +25,7 @@ from weather import weather
 #  ( 'actransit', '232', '0704430', 'NewPark Mall'   ) ]
 
 stops = [
-        ( 'mbta', '34', '639', 'Forest Hills' ),
+        ( 'mbta', 'Next Buses', '639', 'Inbound' ),
         ]
 maxPredictions = 5   # NextBus shows up to 5; limit to 3 for simpler display
 minTime        = 0   # Drop predictions below this threshold (minutes)
@@ -107,12 +107,11 @@ class tile:
 		self.x = x
 		self.y = y
 		self.p = p  # Corresponding predictList[] object
-                self.w = w
+        self.w = w
 
 	def draw(self):
 		x     = self.x
-		#label = self.p.data[1] + ' ' # Route number or code
-                label = 'Next Bus To: ' # Route number or code
+		label = self.p.data[1] + ' ' # Route number or code
 		draw.text((x, self.y ), label, font=font,
 		  fill=routeColor)
 		x    += font.getsize(label)[0]
