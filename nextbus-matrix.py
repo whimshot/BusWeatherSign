@@ -49,8 +49,8 @@ weatherColor = (255,   0, 255)  # The Weather
 # TrueType fonts are a bit too much for the Pi to handle -- slow updates and
 # it's hard to get them looking good at small sizes.  A small bitmap version
 # of Helvetica Regular taken from X11R6 standard distribution works well:
-font =
-ImageFont.load(os.path.dirname(os.path.realpath(__file__)) + '/helvR10.pil')
+font = ImageFont.load(os.path.dirname(os.path.realpath(__file__)) +
+                      '/helvR10.pil')
 fontYoffset = 0  # Scoot up a couple lines so descenders aren't cropped
 
 
