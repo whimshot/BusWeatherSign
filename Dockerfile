@@ -9,7 +9,7 @@ RUN apt-get update
 RUN apt-get install -y apt-utils
 
 RUN apt-get install -y python python-dev build-essential
-RUN apt-get install -y python-imaging python-pywapi
+RUN apt-get install -y python-imaging python-pywapi python-pil-doc python-pil-dbg
 # Remove package lists to free up space
 #RUN rm -rf /var/lib/apt/lists/*
 
