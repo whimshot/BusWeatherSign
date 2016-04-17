@@ -18,4 +18,4 @@ COPY . /app
 
 # run python script when container lands on device
 #CMD ["python", "/app/nextbus-matrix.py"]
-CMD modprobe i2c-dev && python /app/nextbus-matrix.py
+CMD modprobe i2c-dev && python /app/hello.py
