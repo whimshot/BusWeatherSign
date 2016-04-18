@@ -7,7 +7,6 @@ ENV INITSYSTEM on
 RUN apt-get update
 
 RUN apt-get install -y apt-utils
-
 RUN apt-get install -y python python-dev build-essential
 RUN apt-get install -y python-imaging python-pywapi python-pil-doc python-pil-dbg
 # Remove package lists to free up space
@@ -20,4 +19,4 @@ COPY . /app
 #CMD ["python", "/app/nextbus-matrix.py"]
 #CMD ["python", "/app/hello.py"]
 #CMD modprobe i2c-dev && python /app/hello.py
-CMD modprobe i2c-dev && python /app/nextbus-matrix.py
+CMD modprobe bcm2708_wdog && python /app/nextbus-matrix.py
