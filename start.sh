@@ -1,7 +1,9 @@
 # load watchdog kernal module
-modprobe bcm2708_wdog
-echo "Beware this system is being protected by a watchdog"
+modprobe bcm2708_wdog && echo "Hardware Watchdog Enabled"
 
+if [ -e "/dev/watchdog" ]
+then
+    echo "Found /dev/watchdog"
 # Run your application here
 /usr/bin/python /app/nextbus-matrix.py
 
