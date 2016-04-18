@@ -160,10 +160,6 @@ class tile:
                           ' minutes', font=font, fill=minsColor)
             draw.text((self.x, 20), self.w.forecast, font=font,
                       fill=weatherColor)
-            if self.w.forecast:
-                print self.w.forecast
-            else:
-                print "Empty Forecast"
 # Allocate list of tile objects, enough to cover screen while scrolling
 tileList = []
 if tileWidth >= width:
