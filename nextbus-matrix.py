@@ -109,7 +109,7 @@ class tile:
         self.x = x
         self.y = y
         self.p = p  # Corresponding predictList[] object
-        self.w = w
+        self.w = w  # weather object
 
     def draw(self):
         x = self.x
@@ -158,9 +158,12 @@ class tile:
             if count > 0:
                 draw.text((x, self.y + fontYoffset + 10),
                           ' minutes', font=font, fill=minsColor)
-                draw.text((self.x, 20), self.w.forecast, font=font,
-                          fill=weatherColor)
-
+            draw.text((self.x, 20), self.w.forecast, font=font,
+                      fill=weatherColor)
+            if self.w.forecast:
+                print self.w.forecast
+            else:
+                print "Empty Forecast"
 # Allocate list of tile objects, enough to cover screen while scrolling
 tileList = []
 if tileWidth >= width:
