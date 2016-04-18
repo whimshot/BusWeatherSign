@@ -19,4 +19,5 @@ COPY . /app
 #CMD ["python", "/app/nextbus-matrix.py"]
 #CMD ["python", "/app/hello.py"]
 #CMD modprobe i2c-dev && python /app/hello.py
-CMD modprobe bcm2708_wdog && python /app/nextbus-matrix.py
+#CMD modprobe bcm2708_wdog && python /app/nextbus-matrix.py
+CMD ["/bin/bash", "/app/start.sh"]
