@@ -44,7 +44,7 @@ midTimeColor = (255, 255, 0)  # Medium arrival time = yellow
 shortTimeColor = (255, 0, 0)  # Short arrival time = red
 minsColor = (110, 110, 110)  # Commas and 'minutes' labels
 noTimesColor = (0, 0, 255)  # No predictions = blue
-weatherColor = (255, 0, 255)  # The Weather
+weatherColor = (128, 0, 255)  # The Weather
 
 # TrueType fonts are a bit too much for the Pi to handle -- slow updates and
 # it's hard to get them looking good at small sizes.  A small bitmap version
