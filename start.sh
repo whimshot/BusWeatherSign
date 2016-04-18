@@ -4,6 +4,7 @@ modprobe bcm2708_wdog && echo "Hardware Watchdog Enabled"
 if [ -e "/dev/watchdog" ]
 then
     echo "Found /dev/watchdog"
+fi
 # Run your application here
 /usr/bin/python /app/nextbus-matrix.py
 
