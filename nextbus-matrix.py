@@ -25,7 +25,7 @@ from weather import weather
 #  ( 'actransit', '232', '0704430', 'NewPark Mall'   ) ]
 
 stops = [
-        ('mbta', 'Next Buses', '639', 'Inbound'),
+        ('mbta', 'Next Bus', '639', 'Inbound'),
         ]
 maxPredictions = 5   # NextBus shows up to 5; limit to 3 for simpler display
 minTime = 0   # Drop predictions below this threshold (minutes)
@@ -39,12 +39,12 @@ fps = 20  # Scrolling speed (ish)
 
 routeColor = (192, 192, 192)  # Color for route labels (usu. numbers)
 descColor = (192, 192, 192)  # " for route direction/description
-longTimeColor = (0, 255,   0)  # Ample arrival time = green
-midTimeColor = (255, 255,   0)  # Medium arrival time = yellow
-shortTimeColor = (255,   0,   0)  # Short arrival time = red
-minsColor = (110, 110, 110)  # Commans and 'minutes' labels
-noTimesColor = (0,   0, 255)  # No predictions = blue
-weatherColor = (255,   0, 255)  # The Weather
+longTimeColor = (0, 255, 0)  # Ample arrival time = green
+midTimeColor = (255, 255, 0)  # Medium arrival time = yellow
+shortTimeColor = (255, 0, 0)  # Short arrival time = red
+minsColor = (110, 110, 110)  # Commas and 'minutes' labels
+noTimesColor = (0, 0, 255)  # No predictions = blue
+weatherColor = (255, 0, 255)  # The Weather
 
 # TrueType fonts are a bit too much for the Pi to handle -- slow updates and
 # it's hard to get them looking good at small sizes.  A small bitmap version
