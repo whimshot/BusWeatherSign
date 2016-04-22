@@ -21,13 +21,15 @@ class weather:
     def thread(self):
         initSleep = weather.initSleep
         weather.initSleep += 5
+        time.sleep(initSleep)
         while True:
             try:
                 print "Getting weather forcast\n"
                 noaa_result = pywapi.get_weather_from_noaa(self.station)
                 self.forecast = noaa_result['temp_c'] + " C. " + \
                     noaa_result['weather']
+                print "Got %s" % self.forecast
             except error:
                 self.forecact = "Failed to get forecast."
                 print "Failed to get forecast.\n"
-            time.sleep(initSleep)
+            time.sleep(weather.interval)
