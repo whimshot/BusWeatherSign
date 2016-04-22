@@ -6,6 +6,7 @@ then
     echo "Found /dev/watchdog"
 fi
 # Run your application here
+echo "Starting Sign Controller"
 /usr/bin/python /app/nextbus-matrix.py
 
 # unmount hardware watchdog when the container is killed
