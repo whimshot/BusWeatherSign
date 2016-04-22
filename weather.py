@@ -24,8 +24,10 @@ class weather:
         time.sleep(initSleep)
         while True:
             try:
+                print "Getting weather forcast\n"
                 noaa_result = pywapi.get_weather_from_noaa(self.station)
                 self.forecast = noaa_result['temp_c'] + " C. " + \
                     noaa_result['weather']
             except error:
                 self.forecact = "Failed to get forecast."
+                print "Failed to get forecast.\n"
