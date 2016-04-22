@@ -21,7 +21,6 @@ class weather:
     def thread(self):
         initSleep = weather.initSleep
         weather.initSleep += 5
-        time.sleep(initSleep)
         while True:
             try:
                 print "Getting weather forcast\n"
@@ -31,3 +30,4 @@ class weather:
             except error:
                 self.forecact = "Failed to get forecast."
                 print "Failed to get forecast.\n"
+            time.sleep(initSleep)
