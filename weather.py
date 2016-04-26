@@ -34,5 +34,5 @@ class weather:
                 self.forecact = "Failed to get forecast."
                 if DEBUG:
                     print "Failed to get forecast."
-            finally
+            finally:
                 time.sleep(weather.interval)
