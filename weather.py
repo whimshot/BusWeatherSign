@@ -4,6 +4,7 @@ import pywapi
 import threading
 import time
 
+DEBUG = False
 
 class weather:
 
@@ -27,8 +28,11 @@ class weather:
                 noaa_result = pywapi.get_weather_from_noaa(self.station)
                 self.forecast = noaa_result['temp_c'] + " C. " + \
                     noaa_result['weather']
-                print "Forecast retrieved: %s" % self.forecast
+                if DEBUG:
+                    print "Forecast retrieved: %s" % self.forecast
             except error:
                 self.forecact = "Failed to get forecast."
-                print "Failed to get forecast."
-            time.sleep(weather.interval)
+                if DEBUG:
+                    print "Failed to get forecast."
+            finally
+                time.sleep(weather.interval)
