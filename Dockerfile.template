@@ -6,7 +6,7 @@ ENV INITSYSTEM on
 # Install Python.
 RUN apt-get update && \
     apt-get install -y python python-dev build-essential python-imaging \
-    python-pywapi python-pil-doc python-pil-dbg
+    python-pywapi watchdog
 # Reddmove package lists to free up space
 #RUN rm -rf /var/lib/apt/lists/*
 
