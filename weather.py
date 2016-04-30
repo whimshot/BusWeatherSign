@@ -11,6 +11,7 @@ class weather:
     forecast = ''
     interval = 300  # Default polling interval = 5 minutes
     initSleep = 0   # Stagger polling threads to avoid load spikes
+    error = ''
 
     def __init__(self, station):
         self.station = station
