@@ -1,0 +1,10 @@
+[Unit]
+Description=Info Sign
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/InfoSign/InfoSign.sh
+
+[Install]
+WantedBy=multi-user.target
