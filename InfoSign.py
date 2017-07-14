@@ -25,8 +25,8 @@ from weather import weather
 #  ( 'actransit', '232', '0704430', 'NewPark Mall'   ) ]
 
 stops = [
-        ('mbta', 'Next Bus', '639', 'Inbound'),
-        ]
+    ('mbta', 'Next Bus', '639', 'Inbound'),
+]
 maxPredictions = 5   # NextBus shows up to 5; limit to 3 for simpler display
 minTime = 0   # Drop predictions below this threshold (minutes)
 shortTime = 5   # Times less than this are displayed in red
@@ -66,7 +66,14 @@ prevTime = 0.0
 # Clear matrix on exit.  Otherwise it's annoying if you need to break and
 # fiddle with some code while LEDs are blinding you.
 def clearOnExit():
+    """
+    Clear matrix on exit.
+
+    Otherwise it's annoying if you need to break and fiddle with some code
+    while LEDs are blinding you.
+    """
     matrix.Clear()
+
 
 atexit.register(clearOnExit)
 
@@ -86,9 +93,9 @@ for i in xrange(10, 0, -1):
 # accompanying each prediction.  The way this is written, they're all the
 # same width, whatever the maximum is we figure here.
 tileWidth = font.getsize(
-  '88' * maxPredictions +          # 2 digits for minutes
-  ', ' * (maxPredictions-1) +          # comma+space between times
-  ' minutes')[0]                       # 1 space + 'minutes' at end
+    '88' * maxPredictions +          # 2 digits for minutes
+    ', ' * (maxPredictions - 1) +          # comma+space between times
+    ' minutes')[0]                       # 1 space + 'minutes' at end
 w = font.getsize('No Predictions')[0]  # Label when no times are available
 if w > tileWidth:                      # If that's wider than the route
     tileWidth = w                  # description, use as tile width.
@@ -105,13 +112,17 @@ tileWidth += 6                         # Allow extra space between tiles
 
 
 class tile:
+    """Class for image tile."""
+
     def __init__(self, x, y, p, w):
+        """Initialize tile instance."""
         self.x = x
         self.y = y
         self.p = p  # Corresponding predictList[] object
         self.w = w  # weather object
 
     def draw(self):
+        """Draw tile on matrix."""
         x = self.x
         label = self.p.data[1] + ' '  # Route number or code
         # label = 'Next Bus To: ' # Route number or code
@@ -145,7 +156,7 @@ class tile:
                     # be drawn in a goofball position
                     # so it's not cropped off bottom.
                     draw.text((x + 1,
-                              self.y + fontYoffset + 10 - 2),
+                               self.y + fontYoffset + 10 - 2),
                               label, font=font, fill=minsColor)
                     x += font.getsize(label)[0]
                 label = str(m)
@@ -160,6 +171,8 @@ class tile:
                           ' minutes', font=font, fill=minsColor)
             draw.text((self.x, 20), self.w.forecast, font=font,
                       fill=weatherColor)
+
+
 # Allocate list of tile objects, enough to cover screen while scrolling
 tileList = []
 if tileWidth >= width:
@@ -171,7 +184,7 @@ nextPrediction = 0  # Index of predictList item to attach to tile
 for x in xrange(tilesAcross):
     for y in xrange(0, 1):
         tileList.append(tile(x * tileWidth + y * tileWidth / 2,
-                        y * 17, predictList[nextPrediction], myWeather))
+                             y * 17, predictList[nextPrediction], myWeather))
         nextPrediction += 1
         if nextPrediction >= len(predictList):
             nextPrediction = 0
